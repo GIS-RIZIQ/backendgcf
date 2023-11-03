@@ -16,7 +16,7 @@ import (
 // }
 
 func TestGeneratePasswordHash(t *testing.T) {
-	password := "gisdotcom"
+	password := "riziq"
 	hash, _ := HashPassword(password) // ignore error for the sake of simplicity
 	fmt.Println("Password:", password)
 	fmt.Println("Hash:    ", hash)
@@ -28,15 +28,15 @@ func TestGeneratePrivateKeyPaseto(t *testing.T) {
 	privateKey, publicKey := watoken.GenerateKey()
 	fmt.Println(privateKey)
 	fmt.Println(publicKey)
-	hasil, err := watoken.Encode("giscoba", privateKey)
+	hasil, err := watoken.Encode("coba", privateKey)
 	fmt.Println(hasil, err)
 }
 
 func TestHashFunction(t *testing.T) {
-	mconn := SetConnection("MONGOSTRING", "gis")
+	mconn := SetConnection("MONGOSTRING", "nyoba")
 	var userdata User
-	userdata.Username = "giscoba"
-	userdata.Password = "gisdotcom"
+	userdata.Username = "coba"
+	userdata.Password = "riziq"
 
 	filter := bson.M{"username": userdata.Username}
 	res := atdb.GetOneDoc[User](mconn, "user", filter)
@@ -49,20 +49,20 @@ func TestHashFunction(t *testing.T) {
 }
 
 func TestIsPasswordValid(t *testing.T) {
-	mconn := SetConnection("MONGOSTRING", "gis")
+	mconn := SetConnection("MONGOSTRING", "nyoba")
 	var userdata User
-	userdata.Username = "giscoba"
-	userdata.Password = "gisdotcom"
+	userdata.Username = "coba"
+	userdata.Password = "riziq"
 
 	anu := IsPasswordValid(mconn, "user", userdata)
 	fmt.Println(anu)
 }
 
 func TestInsertUser(t *testing.T) {
-	mconn := SetConnection("MONGOSTRING", "gis")
+	mconn := SetConnection("MONGOSTRING", "nyoba")
 	var userdata User
-	userdata.Username = "giscoba"
-	userdata.Password = "gisdotcom"
+	userdata.Username = "coba"
+	userdata.Password = "riziq"
 
 	nama := InsertUser(mconn, "user", userdata)
 	fmt.Println(nama)
